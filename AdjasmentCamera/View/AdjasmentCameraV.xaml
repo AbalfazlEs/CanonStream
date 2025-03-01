@@ -1,0 +1,253 @@
+﻿<Window  x:Class="AdjasmentCamera.View.AdjasmentCameraV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdjasmentCamera.View" 
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:viewmodel="clr-namespace:AdjasmentCamera.ViewModel"
+             mc:Ignorable="d"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             Background="#676767"  
+             d:DesignHeight="550" d:DesignWidth="800">
+
+    <Window.DataContext>
+        <viewmodel:AdjasmentCameraVM/>
+    </Window.DataContext>
+    <b:Interaction.Triggers >
+        <b:EventTrigger EventName="Closing">
+            <b:CallMethodAction MethodName="Window_Closing" TargetObject="{Binding }"/>
+        </b:EventTrigger>
+        <b:EventTrigger EventName="Loaded">
+            <b:CallMethodAction MethodName="Window_Loaded" TargetObject="{Binding }"/>
+        </b:EventTrigger>
+        <b:EventTrigger EventName="SizeChanged">
+            <b:CallMethodAction MethodName="Window_SizeChanged" TargetObject="{Binding }"/>
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
+    <md:DrawerHost IsRightDrawerOpen="True"  >
+
+        <md:DrawerHost.RightDrawerContent>
+            <local:AdjasmentCameraMenuV MinWidth="310" Margin="8" DataContext="{Binding }"/>
+        </md:DrawerHost.RightDrawerContent>
+
+        <Grid >
+            <Canvas Background="{Binding LiveView}" >
+                <StackPanel >
+                    <Label 
+                        Visibility="{Binding LblPositionVisibility}" 
+                        FontSize="18"
+                        Foreground="{Binding BrushLblPosition}"
+                        Content="{Binding LblMousePosition}" />
+                    <Label
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"  
+                        FontSize="20" 
+                        Content="{Binding DistanceToWindowEdge}"/>
+                </StackPanel>
+                
+                <Border 
+                    x:Name="BorderResizer"
+                     Canvas.Left="0" 
+                     Canvas.Top="0" 
+                     MinWidth="100" 
+                     MinHeight="100" 
+                     BorderThickness="4" 
+                     Visibility="{Binding BorderResizerVisibility}"
+                     BorderBrush="{Binding BorderResizerEdgeBrush}" 
+                     Background="{Binding BorderResizerBackgroundBrush}"
+                     Width="{Binding BorderResizerWidth, Mode=TwoWay}"
+                     Height ="{Binding BorderResizerHeight , Mode=TwoWay}">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="10"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="4" />
+                        </Grid.RowDefinitions>
+                        <Thumb x:Name="topSizeGrip" Opacity="0" Grid.Row="0" Grid.Column="1" Cursor="SizeNS"  >
+                            <b:Interaction.Triggers >
+                                <b:EventTrigger EventName="DragDelta">
+                                    <b:CallMethodAction MethodName="Thumb_DragDelta" TargetObject="{Binding }"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Thumb>
+                        <Thumb x:Name="bottomSizeGrip" Opacity="0" Grid.Row="3" Grid.Column="1" Cursor="SizeNS"  >
+                            <b:Interaction.Triggers >
+                                <b:EventTrigger EventName="DragDelta">
+                                    <b:CallMethodAction MethodName="Thumb_DragDelta" TargetObject="{Binding }"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Thumb>
+                        <Thumb x:Name="leftSizeGrip" Opacity="0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Cursor="SizeWE" >
+                            <b:Interaction.Triggers >
+                                <b:EventTrigger EventName="DragDelta">
+                                    <b:CallMethodAction MethodName="Thumb_DragDelta" TargetObject="{Binding }"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Thumb>
+                        <Thumb x:Name="rightSizeGrip" Opacity="0" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Cursor="SizeWE">
+                            <b:Interaction.Triggers >
+                                <b:EventTrigger EventName="DragDelta">
+                                    <b:CallMethodAction MethodName="Thumb_DragDelta" TargetObject="{Binding }"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Thumb>
+                        <Thumb x:Name="bottomRightSizeGrip" Opacity="0" Grid.Row="3" Grid.Column="2" Cursor="SizeNWSE" Tag="BR">
+                            <b:Interaction.Triggers >
+                                <b:EventTrigger EventName="DragDelta">
+                                    <b:CallMethodAction MethodName="Thumb_DragDelta" TargetObject="{Binding }"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Thumb>
+
+                    </Grid>
+
+                    <Border.RenderTransform>
+                        <TranslateTransform X="{Binding MoveResizer.X}" Y="{Binding MoveResizer.Y}"/>
+                    </Border.RenderTransform>
+
+                    <b:Interaction.Triggers >
+                        <b:EventTrigger EventName="Loaded">
+                            <b:CallMethodAction MethodName="ResizerBorder_Loaded" TargetObject="{Binding }"/>
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseMove">
+                            <b:CallMethodAction MethodName="MouseMove" TargetObject="{Binding }"/>
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseUp">
+                            <b:CallMethodAction MethodName="MouseUp" TargetObject="{Binding }"/>
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseDown">
+                            <b:CallMethodAction MethodName="MouseDown" TargetObject="{Binding }"/>
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Border>
+
+                <b:Interaction.Triggers >
+                    <b:EventTrigger EventName="MouseMove">
+                        <b:CallMethodAction MethodName="MouseMovePosition" TargetObject="{Binding }"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Canvas>
+
+            <Button Margin="12" 
+                    Height="50"
+                    Width="50"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Command="{x:Static md:DrawerHost.OpenDrawerCommand }"
+                    CommandParameter="{x:Static Dock.Right}">
+                <md:PackIcon Kind="Tools"/>
+            </Button>
+
+            <Border x:Name="ToolsBorder">
+                <Grid
+                Margin="10"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Bottom" >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                        Margin="2" 
+                        IsEnabled="{Binding UiLock}" 
+                        Content="&lt;&lt;" 
+                        Command="{Binding BtnFocusNearMid}" />
+
+                    <Button Grid.Column="2"
+                        Margin="2" 
+                        IsEnabled="{Binding UiLock}" 
+                        Content="A"
+                        Command="{Binding BtnAutoFocus}"/>
+
+                    <Button Grid.Column="4" 
+                        Margin="2"
+                        IsEnabled="{Binding UiLock}" 
+                        Content="&gt;&gt;"
+                        Command="{Binding BtnFocusFarMid}" />
+
+                    <Button Grid.Column="5"
+                        Margin="15,2,2,2"
+                        IsEnabled="{Binding UiLock}"
+                        Command="{Binding BtnTakePhoto}"
+                        md:ButtonProgressAssist.Value="{Binding BtnTakePhotoProgress}">
+                        <md:PackIcon Kind="CameraImage"   />
+                    </Button>
+
+                    <Button Grid.Column="6" 
+                        Margin="2" 
+                        Command="{Binding BtnZoom}" 
+                        IsEnabled="{Binding UiLock}">
+                        <md:PackIcon Kind="MagnifyPlusOutline" />
+                    </Button>
+
+                </Grid>
+                <Border.RenderTransform>
+                    <TranslateTransform X="{Binding MoveToolsBorder.X }" Y="{Binding MoveToolsBorder.Y }"/>
+                </Border.RenderTransform>
+
+                <b:Interaction.Triggers >
+                    <b:EventTrigger EventName="MouseMove">
+                        <b:CallMethodAction MethodName="MouseMove" TargetObject="{Binding }"/>
+                    </b:EventTrigger>
+                    <b:EventTrigger EventName="MouseUp">
+                        <b:CallMethodAction MethodName="MouseUp" TargetObject="{Binding }"/>
+                    </b:EventTrigger>
+                    <b:EventTrigger EventName="MouseDown">
+                        <b:CallMethodAction MethodName="MouseDown" TargetObject="{Binding }"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Border>
+
+            <Label
+                HorizontalAlignment="Center" 
+                Foreground="red"
+                FontSize="55"
+                Content="{Binding LblError}">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsAnimationRunning}" Value="True">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                                                Storyboard.TargetProperty="Opacity"
+                                                From="0" To="1" 
+                                                Duration="0:0:0.5" 
+                                                AutoReverse="True"
+                                                RepeatBehavior="4x" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+
+                <b:Interaction.Triggers >
+                    <b:EventTrigger EventName="MouseDown">
+                        <b:CallMethodAction MethodName="LblError_MouseDown" TargetObject="{Binding}"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Label>
+
+        </Grid>
+    </md:DrawerHost>
+
+</Window>

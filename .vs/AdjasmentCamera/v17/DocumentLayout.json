@@ -1,0 +1,114 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Work\\program\\Project\\AdjasmentCamera\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|d:\\work\\program\\project\\adjasmentcamera\\adjasmentcamera\\viewmodel\\adjasmentcameravm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|solutionrelative:adjasmentcamera\\viewmodel\\adjasmentcameravm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|D:\\Work\\program\\Project\\AdjasmentCamera\\adjasmentcamera\\view\\adjasmentcamerav.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|solutionrelative:adjasmentcamera\\view\\adjasmentcamerav.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|D:\\Work\\program\\Project\\AdjasmentCamera\\adjasmentcamera\\view\\adjasmentcameramenuv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|solutionrelative:adjasmentcamera\\view\\adjasmentcameramenuv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|D:\\Work\\program\\Project\\AdjasmentCamera\\adjasmentcamera\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|solutionrelative:adjasmentcamera\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|D:\\Work\\program\\Project\\AdjasmentCamera\\adjasmentcamera\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|solutionrelative:adjasmentcamera\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|D:\\Work\\program\\Project\\AdjasmentCamera\\adjasmentcamera\\helpers\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB5FCEFC-FEDA-4AF2-A7FD-F14585196976}|AdjasmentCamera\\AdjasmentCamera.csproj|solutionrelative:adjasmentcamera\\helpers\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\Helpers\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "AdjasmentCamera\\Helpers\\RelayCommand.cs",
+              "ToolTip": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\Helpers\\RelayCommand.cs",
+              "RelativeToolTip": "AdjasmentCamera\\Helpers\\RelayCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T19:23:12.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\App.xaml.cs",
+              "RelativeDocumentMoniker": "AdjasmentCamera\\App.xaml.cs",
+              "ToolTip": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\App.xaml.cs",
+              "RelativeToolTip": "AdjasmentCamera\\App.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T07:34:55.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdjasmentCameraMenuV.xaml",
+              "DocumentMoniker": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\View\\AdjasmentCameraMenuV.xaml",
+              "RelativeDocumentMoniker": "AdjasmentCamera\\View\\AdjasmentCameraMenuV.xaml",
+              "ToolTip": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\View\\AdjasmentCameraMenuV.xaml",
+              "RelativeToolTip": "AdjasmentCamera\\View\\AdjasmentCameraMenuV.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-27T06:14:59.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdjasmentCameraVM.cs",
+              "DocumentMoniker": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\ViewModel\\AdjasmentCameraVM.cs",
+              "RelativeDocumentMoniker": "AdjasmentCamera\\ViewModel\\AdjasmentCameraVM.cs",
+              "ToolTip": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\ViewModel\\AdjasmentCameraVM.cs",
+              "RelativeToolTip": "AdjasmentCamera\\ViewModel\\AdjasmentCameraVM.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAwwFQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T06:14:59.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdjasmentCameraV.xaml",
+              "DocumentMoniker": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\View\\AdjasmentCameraV.xaml",
+              "RelativeDocumentMoniker": "AdjasmentCamera\\View\\AdjasmentCameraV.xaml",
+              "ToolTip": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\View\\AdjasmentCameraV.xaml",
+              "RelativeToolTip": "AdjasmentCamera\\View\\AdjasmentCameraV.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-27T06:14:59.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\App.xaml",
+              "RelativeDocumentMoniker": "AdjasmentCamera\\App.xaml",
+              "ToolTip": "D:\\Work\\program\\Project\\AdjasmentCamera\\AdjasmentCamera\\App.xaml",
+              "RelativeToolTip": "AdjasmentCamera\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-27T07:34:59.99Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

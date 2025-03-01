@@ -1,0 +1,247 @@
+﻿<UserControl x:Class="AdjasmentCamera.View.AdjasmentCameraMenuV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors" 
+             d:DesignHeight="600" d:DesignWidth="300">
+
+    <Grid>
+        <Grid.RowDefinitions  >
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.9*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".4*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Margin="4" 
+                      Foreground="White" 
+                      Name="AvailableCamera" 
+                      md:HintAssist.Hint="Available camera"                          
+                      Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                      ItemsSource="{Binding CBAvailableCamera}">
+                <b:Interaction.Triggers >
+                    <b:EventTrigger EventName="SelectionChanged">
+                        <b:CallMethodAction MethodName="AvailableCamera_SelectionChanged" TargetObject="{Binding }"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </ComboBox>
+
+            <Button Grid.Column="1"
+               Margin="4" 
+                Command="{Binding BtnRefreshCameraList}">
+                <md:PackIcon Kind="CameraFlip" />
+            </Button>
+        </Grid>
+
+        <ComboBox Name="CameraISO"
+                  Foreground="White" 
+                  IsEnabled="{Binding UiLock}"
+                  ItemsSource="{Binding CameraListISO }" 
+                  Grid.Row="1" 
+                  SelectedItem="{Binding IsoInit}"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                  md:HintAssist.Hint="Camera ISO">
+
+            <b:Interaction.Triggers >
+                <b:EventTrigger EventName="SelectionChanged">
+                    <b:CallMethodAction MethodName="CameraISO_SelectionChanged" TargetObject="{Binding }"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </ComboBox>
+
+        <ComboBox Name="CameraTv"
+                  Foreground="White" 
+                  IsEnabled="{Binding UiLock}"
+                  md:HintAssist.Hint="Camera TV"
+                  SelectedItem="{Binding TvInit}"
+                  ItemsSource="{Binding CameraListTv}"
+                  Grid.Row="2"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}">
+            <b:Interaction.Triggers >
+                <b:EventTrigger EventName="SelectionChanged">
+                    <b:CallMethodAction MethodName="CameraTv_SelectionChanged" TargetObject="{Binding }"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </ComboBox>
+
+        <ComboBox Name="CameraAv" 
+                  Foreground="White" 
+                  IsEnabled="{Binding UiLock}"
+                  md:HintAssist.Hint="Camera AV"
+                  ItemsSource="{Binding CameraListAv}"
+                  SelectedItem="{Binding AvInit}"
+                  Grid.Row="3" 
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}">
+            <b:Interaction.Triggers >
+                <b:EventTrigger EventName="SelectionChanged">
+                    <b:CallMethodAction MethodName="CameraAv_SelectionChanged" TargetObject="{Binding }"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </ComboBox>
+
+        <Border Margin="0,5" BorderThickness="2" CornerRadius="6" BorderBrush="Gray" IsEnabled="{Binding UiLock}" Grid.Row="4">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width=".7*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Grid.Column="0"
+                          Margin="8"
+                          Foreground="White" 
+                          IsChecked="{Binding IsLblMousePosition}"
+                          Content="Mouse position :"/>
+
+                <ListBox Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" 
+                      Style="{StaticResource MaterialDesignChoiceChipListBox}">
+                    <ListBoxItem
+                        Content="Black"
+                        IsSelected ="{Binding IsColorLblPositionBlack}" />
+                    <ListBoxItem
+                        Content="White"
+                        IsSelected ="{Binding IsColorLblPositionWhite}" />
+                    <ListBoxItem
+                        Content="Red"
+                        IsSelected ="{Binding IsColorLblPositionRed}" />
+
+                </ListBox>
+            </Grid>
+        </Border>
+
+        <Border 
+            Margin="0,5"
+            Grid.Row="5" 
+            BorderThickness="2" 
+            CornerRadius="6" 
+            BorderBrush="Gray"
+            >
+            <Grid 
+                Grid.Row="1"
+                IsEnabled="{Binding UiLock}"
+                  >
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".7*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width=".7*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Grid.Column="0"
+                          
+                          Margin="8"
+                          Foreground="White" 
+                          IsChecked="{Binding IsBorderResizer}"
+                          Content="Rectangle :"/>
+    
+                <ListBox
+                    Grid.Column="1" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource MaterialDesignChoiceChipListBox}">
+                    <ListBoxItem
+                        Content="Black"
+                        IsSelected ="{Binding IsColorBorderResizerBlack}" />
+                    <ListBoxItem
+                        Content="Teal"
+                        IsSelected ="{Binding IsColorBorderResizerTeal}" />
+                    <ListBoxItem
+                        Content="Red"
+                        IsSelected ="{Binding IsColorBorderResizerRed}" />
+
+                </ListBox>
+                <CheckBox
+                    Margin="0,5"
+                    HorizontalAlignment="Center" 
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Content="Background" 
+                    Width="250"
+                    IsChecked="{Binding IsBackgroundBorderResizer}"
+                    Style="{StaticResource MaterialDesignFilterChipSecondaryOutlineCheckBox}" />
+            </Grid>
+        </Border>
+        
+        <Border BorderThickness="2" Margin="0,5" CornerRadius="6" BorderBrush="Gray" IsEnabled="{Binding UiLock}" Grid.Row="6">
+            <Grid Margin="2">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+
+                <Label Margin="1" Content="Recording quality:" Grid.Row="0"/>
+                
+                <WrapPanel Margin="12,2,2,2" Grid.Row="1">
+                    <RadioButton IsChecked="{Binding IsBtnMidQuality}"  >
+                        <b:Interaction.Triggers >
+                            <b:EventTrigger EventName="Checked">
+                                <b:CallMethodAction MethodName="IsBtnMidQuality_Checked" TargetObject="{Binding }"/>
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </RadioButton>
+                    <Label Content="Mid quality (with live)" />
+                </WrapPanel>
+
+                <WrapPanel Margin="12,2,2,2"  Grid.Row="2">
+                    <RadioButton IsChecked="{Binding IsBtnHighQuality}"  >
+                        <b:Interaction.Triggers >
+                            <b:EventTrigger EventName="Checked">
+                                <b:CallMethodAction MethodName="IsBtnHighQuality_Checked" TargetObject="{Binding }"/>
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </RadioButton>
+                    <Label Content="High quality (Live be interrupted)"/>
+                </WrapPanel>
+
+                <Button md:ButtonAssist.CornerRadius="8" 
+                        Height="50"
+                        Margin="5"
+                        Grid.Row ="3"
+                        Content="{Binding LblBtnVideo}"                  
+                        Command="{Binding BtnRecordVideo}"/>
+            </Grid>
+        </Border>
+        
+        <Button Grid.Row="7"
+                Height="50"
+                Margin="5"
+                IsEnabled="{Binding UiLock}"
+                Command="{Binding BtnTakePhoto}"
+                Content="Take photo"
+                md:ButtonAssist.CornerRadius="8"
+                md:ButtonProgressAssist.Value="{Binding BtnTakePhotoProgress}"/>
+
+        <Button IsEnabled="{Binding UiLock}" 
+                md:ButtonAssist.CornerRadius="8"
+                Height="50"
+                Content="{Binding LblBtnAlternateLive}" 
+                Grid.Row ="8"
+                Command="{Binding BtnAlternateLive}"/>
+
+        <ProgressBar Grid.Row="9" Height="20">
+            <b:Interaction.Triggers >
+                <b:EventTrigger EventName="Loaded">
+                    <b:CallMethodAction MethodName="ProgressBar_Loaded" TargetObject="{Binding }"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </ProgressBar>
+        
+    </Grid>
+</UserControl>
